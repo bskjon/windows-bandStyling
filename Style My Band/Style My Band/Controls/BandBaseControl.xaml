@@ -1,0 +1,37 @@
+﻿<UserControl
+    x:Class="Style_My_Band.BandBaseControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Style_My_Band"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="128"
+    d:DesignWidth="310">
+
+    <Grid>
+        <ListBox x:Name="BandLayout" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollMode="Enabled" Background="Transparent" ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+            <ListBoxItem Width="55" Tag="Base" Background="#00a8e6" Margin="0,0,2,0" Padding="0" HorizontalContentAlignment="Center">
+
+                <Image Source="/Resources/Phone.png" Width="35" />
+
+            </ListBoxItem>
+            <ListBoxItem Tag="Base" Width="55" Margin="0,0,2,0" Background="#00a8e6" Padding="0" HorizontalContentAlignment="Center">
+                <Image  Source="/Resources/Message.png" Width="35" Margin="0,6,0,0" />
+            </ListBoxItem>
+            <ListBoxItem Tag="Base" Margin="0,0,2,0" Width="55" Background="#00a8e6" Padding="0" HorizontalContentAlignment="Center">
+                <Image Source="/Resources/Mail.png" Width="35" />
+            </ListBoxItem>
+            <ListBoxItem Tag="Base" Margin="0,0,2,0" Width="55" Background="#00a8e6" Padding="0" HorizontalContentAlignment="Center">
+                <Image Source="/Resources/Calendar.png" Width="35" />
+            </ListBoxItem>
+        </ListBox>
+
+    </Grid>
+</UserControl>

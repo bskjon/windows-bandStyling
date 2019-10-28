@@ -1,0 +1,137 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Style My Band", "Style My Band\Style My Band.csproj", "{3E75E412-77D5-4777-86C3-42584C6B6E33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{DD98C4E0-EDA5-46BA-86BB-3D0759A7BF13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlManager", "XmlManager\XmlManager.csproj", "{8FC0A7F7-3E4A-4C12-BFB4-5054BAE2E5BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks", "Tasks\Tasks.csproj", "{E7284A5A-AFA7-4681-9DEE-4D9788D2ECFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bitmapping", "Bitmapping\Bitmapping.csproj", "{50BBC2AB-E7E9-4FDC-A416-EAC15F0CC6F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Debug|ARM.ActiveCfg = Debug|ARM
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Debug|ARM.Build.0 = Debug|ARM
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Debug|ARM.Deploy.0 = Debug|ARM
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Debug|x64.ActiveCfg = Debug|x64
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Debug|x64.Build.0 = Debug|x64
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Debug|x64.Deploy.0 = Debug|x64
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Debug|x86.ActiveCfg = Debug|x86
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Debug|x86.Build.0 = Debug|x86
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Debug|x86.Deploy.0 = Debug|x86
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Release|Any CPU.ActiveCfg = Release|x86
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Release|ARM.ActiveCfg = Release|ARM
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Release|ARM.Build.0 = Release|ARM
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Release|ARM.Deploy.0 = Release|ARM
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Release|x64.ActiveCfg = Release|x64
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Release|x64.Build.0 = Release|x64
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Release|x64.Deploy.0 = Release|x64
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Release|x86.ActiveCfg = Release|x86
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Release|x86.Build.0 = Release|x86
+		{3E75E412-77D5-4777-86C3-42584C6B6E33}.Release|x86.Deploy.0 = Release|x86
+		{DD98C4E0-EDA5-46BA-86BB-3D0759A7BF13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD98C4E0-EDA5-46BA-86BB-3D0759A7BF13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD98C4E0-EDA5-46BA-86BB-3D0759A7BF13}.Debug|ARM.ActiveCfg = Debug|ARM
+		{DD98C4E0-EDA5-46BA-86BB-3D0759A7BF13}.Debug|ARM.Build.0 = Debug|ARM
+		{DD98C4E0-EDA5-46BA-86BB-3D0759A7BF13}.Debug|x64.ActiveCfg = Debug|x64
+		{DD98C4E0-EDA5-46BA-86BB-3D0759A7BF13}.Debug|x64.Build.0 = Debug|x64
+		{DD98C4E0-EDA5-46BA-86BB-3D0759A7BF13}.Debug|x86.ActiveCfg = Debug|x86
+		{DD98C4E0-EDA5-46BA-86BB-3D0759A7BF13}.Debug|x86.Build.0 = Debug|x86
+		{DD98C4E0-EDA5-46BA-86BB-3D0759A7BF13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD98C4E0-EDA5-46BA-86BB-3D0759A7BF13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD98C4E0-EDA5-46BA-86BB-3D0759A7BF13}.Release|ARM.ActiveCfg = Release|ARM
+		{DD98C4E0-EDA5-46BA-86BB-3D0759A7BF13}.Release|ARM.Build.0 = Release|ARM
+		{DD98C4E0-EDA5-46BA-86BB-3D0759A7BF13}.Release|x64.ActiveCfg = Release|x64
+		{DD98C4E0-EDA5-46BA-86BB-3D0759A7BF13}.Release|x64.Build.0 = Release|x64
+		{DD98C4E0-EDA5-46BA-86BB-3D0759A7BF13}.Release|x86.ActiveCfg = Release|x86
+		{DD98C4E0-EDA5-46BA-86BB-3D0759A7BF13}.Release|x86.Build.0 = Release|x86
+		{8FC0A7F7-3E4A-4C12-BFB4-5054BAE2E5BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FC0A7F7-3E4A-4C12-BFB4-5054BAE2E5BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FC0A7F7-3E4A-4C12-BFB4-5054BAE2E5BE}.Debug|ARM.ActiveCfg = Debug|ARM
+		{8FC0A7F7-3E4A-4C12-BFB4-5054BAE2E5BE}.Debug|ARM.Build.0 = Debug|ARM
+		{8FC0A7F7-3E4A-4C12-BFB4-5054BAE2E5BE}.Debug|x64.ActiveCfg = Debug|x64
+		{8FC0A7F7-3E4A-4C12-BFB4-5054BAE2E5BE}.Debug|x64.Build.0 = Debug|x64
+		{8FC0A7F7-3E4A-4C12-BFB4-5054BAE2E5BE}.Debug|x86.ActiveCfg = Debug|x86
+		{8FC0A7F7-3E4A-4C12-BFB4-5054BAE2E5BE}.Debug|x86.Build.0 = Debug|x86
+		{8FC0A7F7-3E4A-4C12-BFB4-5054BAE2E5BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FC0A7F7-3E4A-4C12-BFB4-5054BAE2E5BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FC0A7F7-3E4A-4C12-BFB4-5054BAE2E5BE}.Release|ARM.ActiveCfg = Release|ARM
+		{8FC0A7F7-3E4A-4C12-BFB4-5054BAE2E5BE}.Release|ARM.Build.0 = Release|ARM
+		{8FC0A7F7-3E4A-4C12-BFB4-5054BAE2E5BE}.Release|x64.ActiveCfg = Release|x64
+		{8FC0A7F7-3E4A-4C12-BFB4-5054BAE2E5BE}.Release|x64.Build.0 = Release|x64
+		{8FC0A7F7-3E4A-4C12-BFB4-5054BAE2E5BE}.Release|x86.ActiveCfg = Release|x86
+		{8FC0A7F7-3E4A-4C12-BFB4-5054BAE2E5BE}.Release|x86.Build.0 = Release|x86
+		{E7284A5A-AFA7-4681-9DEE-4D9788D2ECFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7284A5A-AFA7-4681-9DEE-4D9788D2ECFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7284A5A-AFA7-4681-9DEE-4D9788D2ECFE}.Debug|ARM.ActiveCfg = Debug|ARM
+		{E7284A5A-AFA7-4681-9DEE-4D9788D2ECFE}.Debug|ARM.Build.0 = Debug|ARM
+		{E7284A5A-AFA7-4681-9DEE-4D9788D2ECFE}.Debug|x64.ActiveCfg = Debug|x64
+		{E7284A5A-AFA7-4681-9DEE-4D9788D2ECFE}.Debug|x64.Build.0 = Debug|x64
+		{E7284A5A-AFA7-4681-9DEE-4D9788D2ECFE}.Debug|x86.ActiveCfg = Debug|x86
+		{E7284A5A-AFA7-4681-9DEE-4D9788D2ECFE}.Debug|x86.Build.0 = Debug|x86
+		{E7284A5A-AFA7-4681-9DEE-4D9788D2ECFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7284A5A-AFA7-4681-9DEE-4D9788D2ECFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7284A5A-AFA7-4681-9DEE-4D9788D2ECFE}.Release|ARM.ActiveCfg = Release|ARM
+		{E7284A5A-AFA7-4681-9DEE-4D9788D2ECFE}.Release|ARM.Build.0 = Release|ARM
+		{E7284A5A-AFA7-4681-9DEE-4D9788D2ECFE}.Release|x64.ActiveCfg = Release|x64
+		{E7284A5A-AFA7-4681-9DEE-4D9788D2ECFE}.Release|x64.Build.0 = Release|x64
+		{E7284A5A-AFA7-4681-9DEE-4D9788D2ECFE}.Release|x86.ActiveCfg = Release|x86
+		{E7284A5A-AFA7-4681-9DEE-4D9788D2ECFE}.Release|x86.Build.0 = Release|x86
+		{50BBC2AB-E7E9-4FDC-A416-EAC15F0CC6F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50BBC2AB-E7E9-4FDC-A416-EAC15F0CC6F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50BBC2AB-E7E9-4FDC-A416-EAC15F0CC6F1}.Debug|ARM.ActiveCfg = Debug|ARM
+		{50BBC2AB-E7E9-4FDC-A416-EAC15F0CC6F1}.Debug|ARM.Build.0 = Debug|ARM
+		{50BBC2AB-E7E9-4FDC-A416-EAC15F0CC6F1}.Debug|x64.ActiveCfg = Debug|x64
+		{50BBC2AB-E7E9-4FDC-A416-EAC15F0CC6F1}.Debug|x64.Build.0 = Debug|x64
+		{50BBC2AB-E7E9-4FDC-A416-EAC15F0CC6F1}.Debug|x86.ActiveCfg = Debug|x86
+		{50BBC2AB-E7E9-4FDC-A416-EAC15F0CC6F1}.Debug|x86.Build.0 = Debug|x86
+		{50BBC2AB-E7E9-4FDC-A416-EAC15F0CC6F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50BBC2AB-E7E9-4FDC-A416-EAC15F0CC6F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50BBC2AB-E7E9-4FDC-A416-EAC15F0CC6F1}.Release|ARM.ActiveCfg = Release|ARM
+		{50BBC2AB-E7E9-4FDC-A416-EAC15F0CC6F1}.Release|ARM.Build.0 = Release|ARM
+		{50BBC2AB-E7E9-4FDC-A416-EAC15F0CC6F1}.Release|x64.ActiveCfg = Release|x64
+		{50BBC2AB-E7E9-4FDC-A416-EAC15F0CC6F1}.Release|x64.Build.0 = Release|x64
+		{50BBC2AB-E7E9-4FDC-A416-EAC15F0CC6F1}.Release|x86.ActiveCfg = Release|x86
+		{50BBC2AB-E7E9-4FDC-A416-EAC15F0CC6F1}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://exeron.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Core\\Core.csproj
+		SccProjectName1 = Core
+		SccLocalPath1 = Core
+		SccProjectUniqueName2 = Style\u0020My\u0020Band\\Style\u0020My\u0020Band.csproj
+		SccProjectName2 = Style\u0020My\u0020Band
+		SccLocalPath2 = Style\u0020My\u0020Band
+		SccProjectUniqueName3 = XmlManager\\XmlManager.csproj
+		SccProjectName3 = XmlManager
+		SccLocalPath3 = XmlManager
+		SccProjectUniqueName4 = Tasks\\Tasks.csproj
+		SccProjectName4 = Tasks
+		SccLocalPath4 = Tasks
+		SccProjectUniqueName5 = Bitmapping\\Bitmapping.csproj
+		SccProjectName5 = Bitmapping
+		SccLocalPath5 = Bitmapping
+	EndGlobalSection
+EndGlobal

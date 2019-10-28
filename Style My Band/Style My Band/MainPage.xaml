@@ -1,0 +1,691 @@
+﻿<Page
+    x:Class="Style_My_Band.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Style_My_Band"
+    xmlns:Controls="using:Style_My_Band.Controls"
+    xmlns:Progress="using:CustomControl"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <ContinuumNavigationTransitionInfo />
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <Grid x:Name="Root" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <RelativePanel>
+
+            <StackPanel x:Name="PreviewBandContainer" >
+                <TextBlock Margin="12,0,0,0" Text="Forhåndsvisning" x:Uid="MainPage_PreviewTextBlock" />
+                <local:MyBandTilePreview x:Name="BandPreview" Margin="0,12,0,0" Grid.Row="1" />
+
+            </StackPanel>
+
+            <StackPanel x:Name="PreviewBackground">
+                <TextBlock x:Name="PreviewBackgroundText" Text="Bakgrunn" x:Uid="MainPage_MeTileTextBlock" />
+                <Border Margin="0,12,0,0" BorderBrush="LightGray"  BorderThickness="1" Tapped="Border_Tapped">
+                    <Image x:Name="PreviewImage" Source="Resources/BandTile.png"  />
+                </Border>
+            </StackPanel>
+
+            <Grid x:Name="PreviewColor" Grid.Column="1" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="PreviewColorText" Grid.Row="0" Text="Tema" x:Uid="MainPage_ThemeTextBlock" />
+                <Border  Margin="0,12,0,0" Grid.Row="1" BorderBrush="LightGray" BorderThickness="1" VerticalAlignment="Stretch" >
+
+                    <Grid x:Name="PreviewColorContainer" Tapped="Grid_Tapped">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Rectangle x:Name="FillBase" Grid.Column="0" Fill="#FF327DFF" />
+                        <Rectangle x:Name="FillHighContrast" Grid.Column="1" Width="25" Fill="#00a8e6" />
+
+                    </Grid>
+
+                </Border>
+            </Grid>
+
+
+            <StackPanel x:Name="PreviewProfiles" Orientation="Vertical">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <ComboBox ItemsSource="{Binding Items}" Grid.Column="0" Header="Profil" x:Name="Profile_Selector" x:Uid="MainPage_ProfileSelector" HorizontalAlignment="Stretch" SelectionChanged="Profile_Selector_SelectionChanged">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{Binding LineOne}" />
+                                    <Grid Grid.Column="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Rectangle Grid.Column="0" Width="25" Fill="{Binding LineNine}" />
+                                        <Rectangle Grid.Column="1" Width="10" Fill="{Binding LineTen}" />
+
+                                    </Grid>
+                                </Grid>
+
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Button  Margin="12,0,0,0" Visibility="Collapsed" x:Name="NewProfileButton" Grid.Column="1" VerticalAlignment="Bottom">
+                        <Button.Content>
+                            <FontIcon Glyph="&#xE109;" />
+                        </Button.Content>
+
+                    </Button>
+                </Grid>
+
+                <TextBlock x:Name="PreviewProfilesText" Margin="0,12,0,0" Text="Hvis du velger nåværende tema, vil du kun oppdatere temaet som kjøres på band. Hvis du velger å opprette og oppdatere en Profil, vil denne lagres, med mindre du trykker på opplasting av temaet" TextWrapping="WrapWholeWords" x:Uid="MainPage_DescriptionTextBlock" />
+
+            </StackPanel>
+
+
+            <CommandBar x:Name="CommandBar">
+                <CommandBar.PrimaryCommands>
+
+                    <AppBarButton Label="Ny Profil" x:Name="AppBarButtonNewProfile" x:Uid="MainPage_AppBarButtonNewProfile">
+                        <AppBarButton.Icon>
+                            <SymbolIcon Symbol="Add" />
+                        </AppBarButton.Icon>
+                        <AppBarButton.Flyout>
+                            <Flyout x:Name="NewProfileFlyout">
+                                <Grid MinWidth="250" HorizontalAlignment="Stretch">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" x:Uid="MainPage_NewProfileNameTextBlock" Text="Profile Name" />
+                                    <TextBox x:Name="NewProfileName" Grid.Row="1" Margin="0,6" />
+                                    <Button Click="AddNewProfile_Click" x:Uid="Global_ButtonApply" Grid.Row="2" Margin="0,6,0,0" Content="Apply" />
+                                </Grid>
+                            </Flyout>
+                        </AppBarButton.Flyout>
+                    </AppBarButton>
+
+                    <AppBarButton x:Name="AppBarButtonUpload" x:Uid="MainPage_AppBarButtonUpload" Label="Last opp tema">
+                        <AppBarButton.Icon>
+                            <SymbolIcon Symbol="Upload" />
+                        </AppBarButton.Icon>
+
+                        <AppBarButton.Flyout>
+                            <!--<MenuFlyout>
+                                <MenuFlyoutItem Text="Upload theme" Tapped="UploadTheme_Tapped" />
+                                <MenuFlyoutItem Text="Upload image" Tapped="UploadImage_Tapped" />
+
+                            </MenuFlyout>-->
+                            <Flyout x:Name="Flyout_BandUpdate">
+                                <Flyout.FlyoutPresenterStyle>
+                                    <Style TargetType="FlyoutPresenter">
+                                        <Setter Property="Padding" Value="0" />
+                                    </Style>
+                                </Flyout.FlyoutPresenterStyle>
+
+                                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                                    <ListView x:Name="ListView_BandUpdate" IsItemClickEnabled="True"  >
+
+                                        <ListViewItem Tapped="ListViewItem_UpdateAll_Tapped" Padding="12">
+                                            <Grid Padding="6">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <FontIcon Grid.Column="0" Glyph="&#xE11C;" FontSize="28" Margin="0,0,6,0" />
+                                                <TextBlock Grid.Column="1" Text="Oppdater Begge" x:Uid="MainPage_AppBarButtonBoth" Margin="6,0,0,0" VerticalAlignment="Center" />
+                                            </Grid>
+                                        </ListViewItem>
+
+                                        <ListViewItem Tapped="ListViewItem_UpdateMeTile_Tapped" Padding="12" >
+                                            <Grid Padding="6">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <FontIcon Grid.Column="0" Glyph="&#xEB9F;" FontSize="28" Margin="0,0,6,0" />
+                                                <TextBlock Grid.Column="1" Text="Oppdater MeTile" x:Uid="MainPage_AppBarButtonMeTile" Margin="6,0,0,0" VerticalAlignment="Center" />
+                                            </Grid>
+                                        </ListViewItem>
+
+                                        <ListViewItem Tapped="ListViewItem_UpdateTheme_Tapped" Padding="12">
+                                            <Grid Padding="6">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <FontIcon Grid.Column="0" Glyph="&#xE2B1;" FontSize="28" Margin="0,0,6,0" />
+                                                <TextBlock Grid.Column="1" Text="Oppdater Tema" x:Uid="MainPage_AppBarButtonTheme" Margin="6,0,0,0" VerticalAlignment="Center" />
+                                            </Grid>
+                                        </ListViewItem>
+
+
+
+                                    </ListView>
+                                </Grid>
+
+
+
+                            </Flyout>
+                        </AppBarButton.Flyout>
+
+                    </AppBarButton>
+
+                    <AppBarButton Label="Reload" x:Name="ReloadBandData_AppBarButton" x:Uid="MainPage_AppBarButtonReload" Click="AppBarButton_Reload_Click" Icon="Refresh" />
+
+
+
+                    <!--<AppBarButton Label="Timer" >
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xECC5;" />
+                        </AppBarButton.Icon>
+                        <AppBarButton.Flyout>
+                            <Flyout>
+                                <Grid>
+                                    <TimePicker>
+                                        <TimePickerFlyout>
+
+                                        </TimePickerFlyout>
+                                    </TimePicker>
+                                    <ToggleSwitch />
+
+                                </Grid>
+                            </Flyout>
+                        </AppBarButton.Flyout>
+
+                    </AppBarButton>-->
+                </CommandBar.PrimaryCommands>
+
+                <CommandBar.SecondaryCommands>
+
+
+                    <AppBarButton Label="Endre navn" x:Uid="MainPage_AppBarButtonChangeName" x:Name="ProfileEdit_AppBarButton">
+                        <AppBarButton.Icon>
+                            <SymbolIcon Symbol="Edit" />
+                        </AppBarButton.Icon>
+                        <AppBarButton.Flyout>
+                            <Flyout x:Name="UpdateProfileFlyout"  Opening="UpdateProfileFlyout_Opening">
+                                <Grid MinWidth="250" HorizontalAlignment="Stretch">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" x:Uid="MainPage_UpdateProfileNameTextBlock" Text="Change Profile Name" />
+                                    <TextBox x:Name="UpdateProfileName" Grid.Row="1" Margin="0,6" />
+                                    <Button Click="UpdateNewProfile_Click" Grid.Row="2" x:Uid="Global_ButtonUpdate" Margin="0,6,0,0" Content="Update" />
+                                </Grid>
+                            </Flyout>
+                        </AppBarButton.Flyout>
+
+                    </AppBarButton>
+
+
+
+                    <AppBarButton Label="Slett" x:Uid="MainPage_AppBarButtonDelete" x:Name="ProfileDelete_AppBarButton" Click="ProfileDelete_AppBarButton_Click" />
+
+                    <AppBarButton Label="Eksporter" x:Uid="MainPage_AppBarButtonExport" x:Name="ProfileExport_AppBarButton" Click="ProfileExport_AppBarButton_Click" Icon="SaveLocal"/>
+                    <AppBarButton Label="Importer" x:Uid="MainPage_AppBarButtonImport" x:Name="ProfileImport_AppBarButton" Click="ProfileImport_AppBarButton_Click" Icon="OpenLocal" />
+                    <AppBarButton Label="Version" x:Uid="MainPage_AppBarButtonVersion" x:Name="MainPage_ApplicationVersionAppBarButton" Icon="Help" Click="MainPage_ApplicationVersionAppBarButton_Click" />
+
+                </CommandBar.SecondaryCommands>
+            </CommandBar>
+
+        </RelativePanel>
+        <RelativePanel x:Name="OneMoment" Visibility="Collapsed" IsHitTestVisible="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#00a8e6" RenderTransformOrigin="0.5,0.5">
+            <RelativePanel.RenderTransform>
+                <CompositeTransform x:Name="transform_Onemoment" TranslateY="0"/>
+            </RelativePanel.RenderTransform>
+
+            <Progress:ProgressControl x:Name="CustomProgressControl"  Margin="0,0,0,0" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            <TextBlock x:Name="OneMomentTitle" Text="Et øyeblikk" x:Uid="MainPage_OneMoment" Foreground="White" RelativePanel.Below="CustomProgressControl" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+            <TextBlock x:Name="OneMomentSubTitle" Text="---" Visibility="Collapsed" Foreground="White" Margin="0,6,0,0" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="OneMomentTitle" />
+
+            <TextBlock Grid.Row="1" x:Name="OneMomentDetails" Text="..." Foreground="White" HorizontalAlignment="Center" TextAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,24" TextWrapping="WrapWholeWords" RelativePanel.Below="OneMomentTitle" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+
+
+
+            <!--<StackPanel Grid.Row="0" Orientation="Vertical" Margin="0,24,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                <ProgressRing Grid.Row="0" Height="100" Foreground="White" Width="100" IsActive="True" Margin="0,0,0,12" />
+                <Progress:ProgressControl x:Name="CustomProgressControl"  Margin="0,0,0,12"/>
+
+            </StackPanel>-->
+            
+
+        </RelativePanel>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+
+
+                <!--Portrait 8-->
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="900" MinWindowWidth="580" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="PreviewBandContainer.(RelativePanel.AlignTopWithPanel)" Value="True" />
+                        <Setter Target="PreviewBandContainer.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="PreviewBandContainer.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="PreviewBandContainer.Margin" Value="0,12" />
+
+                        <Setter Target="PreviewColor.(RelativePanel.Below)" Value="PreviewBandContainer" />
+                        <Setter Target="PreviewBackground.(RelativePanel.Below)" Value="PreviewBandContainer" />
+
+
+                        <Setter Target="PreviewColor.(RelativePanel.AlignTopWith)" Value="PreviewBackground" />
+                        <Setter Target="PreviewColor.(RelativePanel.AlignBottomWith)" Value="PreviewBackground" />
+
+                        <Setter Target="PreviewColor.Width" Value="280" />
+                        <Setter Target="PreviewBackground.Width" Value="280" />
+
+                        <Setter Target="PreviewColor.Margin" Value="0,12,12,0" />
+                        <Setter Target="PreviewBackground.Margin" Value="12,12,0,0" />
+                        <Setter Target="PreviewProfiles.Margin" Value="12" />
+
+
+
+
+
+                        <Setter Target="PreviewColor.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="PreviewBackground.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+
+
+                        <Setter Target="PreviewProfiles.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="PreviewProfiles.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="PreviewProfiles.(RelativePanel.Below)" Value="PreviewBackground" />
+
+
+
+                        <Setter Target="CommandBar.(RelativePanel.AlignBottomWithPanel)" Value="True" />
+
+                        <Setter Target="CommandBar.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="CommandBar.(RelativePanel.AlignRightWithPanel)" Value="True" />
+
+                        <!--<Setter Target="Root.Background" Value="Yellow" />-->
+
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!--Landscape 8 -->
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1000" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="PreviewBandContainer.(RelativePanel.LeftOf)" Value="PreviewColor" />
+                        <Setter Target="PreviewProfiles.(RelativePanel.LeftOf)" Value="PreviewColor" />
+
+                        <Setter Target="PreviewBandContainer.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="PreviewProfiles.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+
+                        <Setter Target="PreviewProfiles.(RelativePanel.Below)" Value="PreviewBandContainer" />
+
+
+                        <Setter Target="PreviewProfiles.Margin" Value="12" />
+                        <Setter Target="PreviewBandContainer.Margin" Value="12" />
+
+
+                        <Setter Target="PreviewColor.(RelativePanel.AlignTopWithPanel)" Value="True" />
+                        <Setter Target="PreviewColor.(RelativePanel.AlignRightWithPanel)" Value="True" />
+
+                        <Setter Target="PreviewBackground.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="PreviewBackground.(RelativePanel.Below)" Value="PreviewColor" />
+
+
+
+                        <Setter Target="PreviewColor.Height" Value="128" />
+                        <Setter Target="PreviewColor.Width" Value="250" />
+                        <Setter Target="PreviewColor.Margin" Value="12" />
+
+                        <Setter Target="PreviewBackground.Height" Value="140" />
+                        <Setter Target="PreviewBackground.Width" Value="250" />
+                        <Setter Target="PreviewBackground.Margin" Value="12" />
+
+
+                        <Setter Target="CommandBar.(RelativePanel.AlignBottomWithPanel)" Value="True" />
+
+                        <Setter Target="CommandBar.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="CommandBar.(RelativePanel.AlignRightWithPanel)" Value="True" />
+
+                        <!--<Setter Target="Root.Background" Value="Cyan" />-->
+
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!--Landscape 6 -->
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="700" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+
+                        <Setter Target="PreviewBandContainer.(RelativePanel.LeftOf)" Value="PreviewColor" />
+                        <Setter Target="PreviewProfiles.(RelativePanel.LeftOf)" Value="PreviewColor" />
+
+                        <Setter Target="PreviewBandContainer.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="PreviewProfiles.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+
+                        <Setter Target="PreviewProfiles.(RelativePanel.Below)" Value="PreviewBandContainer" />
+
+
+                        <Setter Target="PreviewProfiles.Margin" Value="12" />
+                        <Setter Target="PreviewBandContainer.Margin" Value="12" />
+
+
+                        <Setter Target="PreviewColor.(RelativePanel.AlignTopWithPanel)" Value="True" />
+                        <Setter Target="PreviewColor.(RelativePanel.AlignRightWithPanel)" Value="True" />
+
+                        <Setter Target="PreviewBackground.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="PreviewBackground.(RelativePanel.Below)" Value="PreviewColor" />
+
+
+
+                        <Setter Target="PreviewColor.Height" Value="128" />
+                        <Setter Target="PreviewColor.Width" Value="250" />
+                        <Setter Target="PreviewColor.Margin" Value="12" />
+
+                        <Setter Target="PreviewBackground.Height" Value="140" />
+                        <Setter Target="PreviewBackground.Width" Value="250" />
+                        <Setter Target="PreviewBackground.Margin" Value="12" />
+
+
+                        <Setter Target="CommandBar.(RelativePanel.AlignBottomWithPanel)" Value="True" />
+
+                        <Setter Target="CommandBar.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="CommandBar.(RelativePanel.AlignRightWithPanel)" Value="True" />
+
+
+                        <!--<Setter Target="Root.Background" Value="Blue" />-->
+                    </VisualState.Setters>
+                </VisualState>
+                <!--Landscape -->
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger  MinWindowHeight="320" MinWindowWidth="500" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+
+                        <!--<Setter Target="BandPreview.Height" Value="100" />
+                        <Setter Target="BandPreview.Width" Value="342" />-->
+
+
+                        <Setter Target="BandPreview.RenderTransform">
+                            <Setter.Value>
+                                <CompositeTransform ScaleX="0.9" ScaleY="0.9" />
+                            </Setter.Value>
+                        </Setter>
+
+                        <Setter Target="BandPreview.RenderTransformOrigin" Value="0.5,0.5" />
+
+
+
+                        <!--<Setter Target="PreviewBandContainer.(RelativePanel.LeftOf)" Value="PreviewColor" />
+                        <Setter Target="PreviewProfiles.(RelativePanel.LeftOf)" Value="PreviewColor" />
+
+                        <Setter Target="PreviewBandContainer.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="PreviewProfiles.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+
+                        <Setter Target="PreviewProfiles.(RelativePanel.Below)" Value="PreviewBandContainer" />
+
+
+                        <Setter Target="PreviewProfiles.Margin" Value="12" />
+                        <Setter Target="PreviewBandContainer.Margin" Value="12" />
+
+
+                        <Setter Target="PreviewColor.(RelativePanel.AlignTopWithPanel)" Value="True" />
+                        <Setter Target="PreviewColor.(RelativePanel.AlignRightWithPanel)" Value="True" />
+
+                        <Setter Target="PreviewBackground.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="PreviewBackground.(RelativePanel.Below)" Value="PreviewColor" />
+
+
+
+                        <Setter Target="PreviewColor.Height" Value="128" />
+                        <Setter Target="PreviewColor.Width" Value="250" />
+                        <Setter Target="PreviewColor.Margin" Value="12" />
+
+                        <Setter Target="PreviewBackground.Height" Value="128" />
+                        <Setter Target="PreviewBackground.Width" Value="250" />
+                        <Setter Target="PreviewBackground.Margin" Value="12" />-->
+
+                        <Setter Target="PreviewColor.Margin" Value="12" />
+                        <Setter Target="PreviewBackground.Margin" Value="12" />
+
+                        <Setter Target="PreviewColor.Height" Value="112" />
+                        <Setter Target="PreviewBackground.Height" Value="112" />
+
+                        <Setter Target="PreviewColor.MaxWidth" Value="232" />
+                        <Setter Target="PreviewBackground.MaxWidth" Value="232" />
+
+                        <Setter Target="PreviewBackground.(RelativePanel.Below)" Value="PreviewColor" />
+
+                        <Setter Target="PreviewColor.(RelativePanel.RightOf)" Value="PreviewBandContainer" />
+                        <Setter Target="PreviewBackground.(RelativePanel.RightOf)" Value="PreviewBandContainer" />
+
+                        <Setter Target="PreviewColor.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="PreviewBackground.(RelativePanel.AlignRightWithPanel)" Value="True" />
+
+                        <Setter Target="PreviewProfiles.Margin" Value="12,0,12,0" />
+                        <Setter Target="PreviewBandContainer.Margin" Value="12" />
+
+
+                        <Setter Target="PreviewProfiles.(RelativePanel.Below)" Value="PreviewBandContainer" />
+                        <Setter Target="PreviewProfiles.(RelativePanel.AlignRightWith)" Value="PreviewBandContainer" />
+
+                        <Setter Target="PreviewProfiles.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="PreviewBandContainer.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+
+
+
+                        <Setter Target="CommandBar.(RelativePanel.AlignBottomWithPanel)" Value="True" />
+
+                        <Setter Target="CommandBar.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="CommandBar.(RelativePanel.AlignRightWithPanel)" Value="True" />
+
+                        <!--<Setter Target="Root.Background" Value="Red" />-->
+
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!--Portrait-->
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="500" MinWindowWidth="250" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="PreviewBandContainer.(RelativePanel.AlignTopWithPanel)" Value="True" />
+                        <Setter Target="PreviewBandContainer.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="PreviewBandContainer.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="PreviewBandContainer.Margin" Value="0,12" />
+
+                        <Setter Target="PreviewColor.(RelativePanel.Below)" Value="PreviewBandContainer" />
+                        <Setter Target="PreviewBackground.(RelativePanel.Below)" Value="PreviewBandContainer" />
+
+
+                        <Setter Target="PreviewColor.(RelativePanel.AlignTopWith)" Value="PreviewBackground" />
+                        <Setter Target="PreviewColor.(RelativePanel.AlignBottomWith)" Value="PreviewBackground" />
+
+                        <Setter Target="PreviewColor.Width" Value="160" />
+                        <Setter Target="PreviewBackground.Width" Value="160" />
+
+                        <Setter Target="PreviewColor.Margin" Value="0,12,12,0" />
+                        <Setter Target="PreviewBackground.Margin" Value="12,12,0,0" />
+                        <Setter Target="PreviewProfiles.Margin" Value="12" />
+
+
+
+
+
+                        <Setter Target="PreviewColor.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="PreviewBackground.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+
+
+                        <Setter Target="PreviewProfiles.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="PreviewProfiles.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="PreviewProfiles.(RelativePanel.Below)" Value="PreviewBackground" />
+
+
+
+                        <Setter Target="CommandBar.(RelativePanel.AlignBottomWithPanel)" Value="True" />
+
+                        <Setter Target="CommandBar.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="CommandBar.(RelativePanel.AlignRightWithPanel)" Value="True" />
+
+                        <!--<Setter Target="Root.Background" Value="Gray" />-->
+
+
+                    </VisualState.Setters>
+                </VisualState>
+
+
+                <!--StrechStuff-->
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="500" MinWindowWidth="500" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="PreviewBandContainer.(RelativePanel.AlignTopWithPanel)" Value="True" />
+                        <Setter Target="PreviewBandContainer.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="PreviewBandContainer.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="PreviewBandContainer.Margin" Value="0,12" />
+
+                        <Setter Target="PreviewColor.(RelativePanel.Below)" Value="PreviewBandContainer" />
+                        <Setter Target="PreviewBackground.(RelativePanel.Below)" Value="PreviewBandContainer" />
+
+
+                        <Setter Target="PreviewColor.(RelativePanel.AlignTopWith)" Value="PreviewBackground" />
+                        <Setter Target="PreviewColor.(RelativePanel.AlignBottomWith)" Value="PreviewBackground" />
+
+                        <Setter Target="PreviewColor.Width" Value="160" />
+                        <Setter Target="PreviewBackground.Width" Value="160" />
+
+                        <Setter Target="PreviewColor.Margin" Value="0,12,12,0" />
+                        <Setter Target="PreviewBackground.Margin" Value="12,12,0,0" />
+                        <Setter Target="PreviewProfiles.Margin" Value="12" />
+
+
+
+
+
+                        <Setter Target="PreviewColor.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="PreviewBackground.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+
+
+                        <Setter Target="PreviewProfiles.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="PreviewProfiles.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="PreviewProfiles.(RelativePanel.Below)" Value="PreviewBackground" />
+
+
+
+                        <Setter Target="CommandBar.(RelativePanel.AlignBottomWithPanel)" Value="True" />
+
+                        <Setter Target="CommandBar.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="CommandBar.(RelativePanel.AlignRightWithPanel)" Value="True" />
+
+                        <!--<Setter Target="Root.Background" Value="Pink" />-->
+
+
+                    </VisualState.Setters>
+                </VisualState>
+
+
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="0" MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+
+                        <Setter Target="PreviewBandContainer.(RelativePanel.AlignTopWithPanel)" Value="True" />
+                        <Setter Target="PreviewBandContainer.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="PreviewBandContainer.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="PreviewBandContainer.Height" Value="80" />
+                        <Setter Target="BandPreview.Margin" Value="0,-20,0,0" />
+
+                        <!--<Setter Target="BandPreview.Projection">
+                            <Setter.Value>
+                                <PlaneProjection GlobalOffsetZ="-900" GlobalOffsetY="-50" />
+                            </Setter.Value>
+                        </Setter>-->
+
+
+                        <Setter Target="BandPreview.RenderTransformOrigin" Value="0.5,0.5" />
+                        <Setter Target="BandPreview.RenderTransform">
+                            <Setter.Value>
+                                <CompositeTransform ScaleX="0.5" ScaleY="0.5" />
+                            </Setter.Value>
+                        </Setter>
+
+                        <Setter Target="PreviewColor.(RelativePanel.Below)" Value="PreviewBandContainer" />
+                        <Setter Target="PreviewBackground.(RelativePanel.Below)" Value="PreviewBandContainer" />
+
+
+                        <Setter Target="PreviewColor.(RelativePanel.AlignTopWith)" Value="PreviewBackground" />
+                        <Setter Target="PreviewColor.(RelativePanel.AlignBottomWith)" Value="PreviewBackground" />
+
+                        <Setter Target="PreviewColorText.Margin" Value="0,4,0,0" />
+                        <Setter Target="PreviewBackgroundText.Margin" Value="0,4,0,0" />
+
+                        <Setter Target="PreviewColor.Width" Value="70" />
+                        <Setter Target="PreviewBackground.Width" Value="70" />
+
+                        <Setter Target="PreviewColorContainer.Height" Value="32" />
+                        <Setter Target="PreviewImage.Height" Value="32" />
+
+                        <Setter Target="PreviewColor.Margin" Value="6,0,6,0" />
+                        <Setter Target="PreviewBackground.Margin" Value="6,0,6,0" />
+                        <Setter Target="PreviewProfiles.Margin" Value="6" />
+
+                        <Setter Target="PreviewColor.(RelativePanel.RightOf)" Value="PreviewBackground" />
+
+
+                        <Setter Target="PreviewProfiles.(RelativePanel.RightOf)" Value="PreviewColor" />
+                        <Setter Target="PreviewProfiles.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="PreviewProfiles.(RelativePanel.Below)" Value="PreviewBandContainer" />
+
+                        <Setter Target="PreviewProfilesText.Visibility" Value="Collapsed" />
+
+                        <Setter Target="CommandBar.(RelativePanel.AlignBottomWithPanel)" Value="True" />
+
+                        <Setter Target="CommandBar.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="CommandBar.(RelativePanel.AlignRightWithPanel)" Value="True" />
+
+                        <Setter Target="CommandBar.Visibility" Value="Visible" />
+                        <!--<Setter Target="Root.Background" Value="Purple" />-->
+
+                    </VisualState.Setters>
+                </VisualState>
+
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+    </Grid>
+</Page>

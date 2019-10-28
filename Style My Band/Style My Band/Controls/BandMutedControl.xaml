@@ -1,0 +1,37 @@
+﻿<UserControl
+    x:Class="Style_My_Band.BandMutedControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Style_My_Band"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="128"
+    d:DesignWidth="310">
+
+
+
+
+    <Grid x:Name="root" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Border x:Name="Muted" Grid.Column="0" Margin="12,6,0,0" Height="50" Width="50" HorizontalAlignment="Left" Background="Purple" CornerRadius="50" >
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" FontSize="22" FontWeight="SemiBold" Text="5" Foreground="White" HorizontalAlignment="Center" />
+                <TextBlock Grid.Row="1" FontSize="10" Text="km" Foreground="White" HorizontalAlignment="Center" />
+            </Grid>
+        </Border>
+        <TextBlock Grid.Column="1" Text="22.5" Margin="12,0,0,0" Foreground="White" FontSize="32" VerticalAlignment="Center" />
+    </Grid>
+
+
+
+
+
+</UserControl>

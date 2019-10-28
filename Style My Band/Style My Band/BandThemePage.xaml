@@ -1,0 +1,413 @@
+﻿<Page
+    x:Class="Style_My_Band.BandThemePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Style_My_Band"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <ContinuumNavigationTransitionInfo />
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <Grid x:Name="Root" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <RelativePanel x:Name="RelativePanelMain" Grid.Row="0">
+
+            <local:BandPreviewControl x:Name="PreviewControl" IsHitTestVisible="False" Margin="0,12,0,12" />
+
+            
+            <ListBox x:Name="ColorTypeSelector" Grid.Row="1" SelectionChanged="ListBox_SelectionChanged" VerticalAlignment="Center" Background="Transparent">
+                <ListBoxItem>
+                    
+                    <Grid VerticalAlignment="Top" Grid.Row="0" Margin="0,6,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border x:Name="Base" Grid.Column="0" Height="50" CornerRadius="50" Background="Purple" />
+                        <TextBlock Grid.Column="1" Margin="12,0,0,0" Text="Base" VerticalAlignment="Center" FontSize="20"  />
+                    </Grid>
+
+                </ListBoxItem>
+                <ListBoxItem>
+                    <Grid VerticalAlignment="Top" Margin="0,6,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border x:Name="HighContrast" Grid.Column="0" Height="50" CornerRadius="50" Background="Purple" />
+                        <TextBlock Grid.Column="1" Margin="12,0,0,0" Text="High Contrast" VerticalAlignment="Center" FontSize="20"  />
+                    </Grid>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <Grid VerticalAlignment="Top" Margin="0,6,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border x:Name="Lowlight" Grid.Column="0" Height="50" CornerRadius="50" Background="Purple" />
+                        <TextBlock Grid.Column="1" Margin="12,0,0,0" Text="Lowlight" VerticalAlignment="Center" FontSize="20"  />
+                    </Grid>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <Grid VerticalAlignment="Top" Margin="0,6,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border x:Name="Highlight" Grid.Column="0" Height="50" CornerRadius="50" Background="Purple" />
+                        <TextBlock Grid.Column="1" Margin="12,0,0,0" Text="Highlight" VerticalAlignment="Center" FontSize="20"  />
+                    </Grid>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <Grid VerticalAlignment="Top" Margin="0,6,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border x:Name="Muted" Grid.Column="0" Height="50" CornerRadius="50" Background="Purple" />
+                        <TextBlock Grid.Column="1" Margin="12,0,0,0" Text="Muted" VerticalAlignment="Center" FontSize="20"  />
+                    </Grid>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <Grid VerticalAlignment="Top" Margin="0,6,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border x:Name="Secondary" Grid.Column="0" Height="50" CornerRadius="50" Background="Purple" />
+                        <TextBlock Grid.Column="1" Margin="12,0,0,0" Text="Secondary" VerticalAlignment="Center" FontSize="20"  />
+                    </Grid>
+                </ListBoxItem>
+            </ListBox>
+            
+            <Pivot x:Name="ValueInput"  Grid.Row="2">
+                <PivotItem Header="Basic" x:Uid="BandThemePage_PivotItemHeader_Basic" MinHeight="135">
+                    <Grid>
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Grid.Row="0" Text="Red" x:Uid="BandThemePage_RedSlider" Margin="0,0,12,0" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="Green" x:Uid="BandThemePage_GreenSlider" Margin="0,0,12,0" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="0" Grid.Row="2" Text="Blue" x:Uid="BandThemePage_BlueSlider" Margin="0,0,12,0" VerticalAlignment="Center" />
+
+                            <Slider Grid.Column="1" Grid.Row="0" x:Name="_RSlider" ValueChanged="R_Slider_ValueChanged" Maximum="255"  />
+                            <Slider Grid.Column="1" Grid.Row="1" x:Name="_GSlider" ValueChanged="G_Slider_ValueChanged" Maximum="255"  />
+                            <Slider Grid.Column="1" Grid.Row="2" x:Name="_BSlider" ValueChanged="B_Slider_ValueChanged" Maximum="255"  />
+
+
+                        </Grid>
+
+                    </Grid>
+                </PivotItem>
+                <PivotItem x:Uid="BandThemePage_PivotItemHeader_Advanced" Header="Advanced" MinHeight="135">
+                    <Grid HorizontalAlignment="Center" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+
+                            <TextBox x:Name="_R" Grid.Column="0" Header="Red" x:Uid="BandThemePage_RedTextBlock" PlaceholderText="255" InputScope="Number" MaxLength="3" KeyUp="_R_KeyUp"  />
+                            <TextBox x:Name="_G" Grid.Column="1" Header="Green" x:Uid="BandThemePage_GreenTextBlock" PlaceholderText="255" InputScope="Number" MaxLength="3" KeyUp="_G_KeyUp" />
+                            <TextBox x:Name="_B" Grid.Column="2" Header="Blue" x:Uid="BandThemePage_BlueTextBlock" PlaceholderText="255" InputScope="Number" MaxLength="3" KeyUp="_B_KeyUp"/>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="_Hex" Grid.Column="0" Margin="0,12,0,0" Header="Hex" MaxLength="8" KeyUp="_Hex_KeyUp"  />
+
+                        </Grid>
+                    </Grid>
+
+                </PivotItem>
+            </Pivot>
+
+
+
+
+
+            <!--<Grid x:Name="_ValueInput" Visibility="Collapsed" Grid.Row="2" Margin="0,12,0,0" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <TextBox x:Name="__R" Grid.Column="0" Header="Red" PlaceholderText="255" InputScope="Number" MaxLength="3" KeyUp="_R_KeyUp"  />
+                    <TextBox x:Name="__G" Grid.Column="1" Header="Green" PlaceholderText="255" InputScope="Number" MaxLength="3" KeyUp="_G_KeyUp" />
+                    <TextBox x:Name="__B" Grid.Column="2" Header="Blue" PlaceholderText="255" InputScope="Number" MaxLength="3" KeyUp="_B_KeyUp"/>
+                </Grid>
+                <TextBox x:Name="__Hex" Grid.Row="1" Margin="0,12,0,0" Header="Hex" MaxLength="8" KeyUp="_Hex_KeyUp"  />
+
+            </Grid>-->
+
+
+        </RelativePanel>
+
+        <CommandBar Grid.Row="1">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Label="Farger" x:Uid="Global_AppBarButtonColors" Click="AppBarButton_Colors_Click">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xE2B1;" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton Label="Lagre" x:Uid="Global_AppBarButtonSave" Click="AppBarButton_Click">
+                    <AppBarButton.Icon>
+                        <SymbolIcon Symbol="Save" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+
+
+                <!--Portrait 8-->
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="900" MinWindowWidth="580" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+
+                        <Setter Target="PreviewControl.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="PreviewControl.(RelativePanel.AlignRightWithPanel)" Value="True" />
+
+
+                        <Setter Target="ColorTypeSelector.(RelativePanel.Below)" Value="PreviewControl" />
+                        <Setter Target="ColorTypeSelector.(RelativePanel.Above)" Value="ValueInput" />
+
+
+
+                        <Setter Target="ValueInput.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="ValueInput.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="ValueInput.(RelativePanel.AlignBottomWithPanel)" Value="True" />
+
+
+                        <Setter Target="_R.Width" Value="100" />
+                        <Setter Target="_G.Width" Value="100" />
+                        <Setter Target="_B.Width" Value="100" />
+
+                        <Setter Target="RelativePanelMain.(RelativePanel.Margin)" Value="12" />
+                        <!--<Setter Target="Root.Background" Value="Yellow" />-->
+
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!--Landscape 8 -->
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1000" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="PreviewControl.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="ColorTypeSelector.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="ColorTypeSelector.(RelativePanel.LeftOf)" Value="PreviewControl" />
+                        <Setter Target="ColorTypeSelector.Margin" Value="12,0,0,0" />
+                        
+                        <Setter Target="ValueInput.(RelativePanel.AlignRightWithPanel)" Value="True" />
+
+                        <Setter Target="ValueInput.(RelativePanel.RightOf)" Value="ColorTypeSelector" />
+
+                        <Setter Target="ValueInput.(RelativePanel.AlignBottomWithPanel)" Value="True" />
+
+                        <Setter Target="_R.Width" Value="100" />
+                        <Setter Target="_G.Width" Value="100" />
+                        <Setter Target="_B.Width" Value="100" />
+
+
+                        <Setter Target="RelativePanelMain.(RelativePanel.Margin)" Value="12,0,12,0" />
+                        <!--<Setter Target="Root.Background" Value="Cyan" />-->
+
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!--Landscape 6 -->
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="700" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="PreviewControl.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="ColorTypeSelector.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="ColorTypeSelector.(RelativePanel.RightOf)" Value="PreviewControl" />
+                        <Setter Target="ColorTypeSelector.Margin" Value="12,0,0,0" />
+                        
+                        <Setter Target="ValueInput.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="ValueInput.(RelativePanel.LeftOf)" Value="ColorTypeSelector" />
+                        
+                        <Setter Target="ValueInput.(RelativePanel.AlignBottomWithPanel)" Value="True" />
+
+                        <Setter Target="_R.Width" Value="100" />
+                        <Setter Target="_G.Width" Value="100" />
+                        <Setter Target="_B.Width" Value="100" />
+
+                        <Setter Target="RelativePanelMain.(RelativePanel.Margin)" Value="12,0,12,0" />
+                        
+                        <!--<Setter Target="Root.Background" Value="Blue" />-->
+                    </VisualState.Setters>
+                </VisualState>
+                <!--Landscape -->
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger  MinWindowHeight="320" MinWindowWidth="500" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="PreviewControl.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="ColorTypeSelector.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="ColorTypeSelector.(RelativePanel.RightOf)" Value="PreviewControl" />
+                        <Setter Target="ColorTypeSelector.Margin" Value="12,0,0,0" />
+
+                        <Setter Target="ValueInput.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="ValueInput.(RelativePanel.LeftOf)" Value="ColorTypeSelector" />
+                        
+                        <Setter Target="ValueInput.(RelativePanel.Below)" Value="PreviewControl" />
+
+                        <Setter Target="_R.Width" Value="100" />
+                        <Setter Target="_G.Width" Value="100" />
+                        <Setter Target="_B.Width" Value="100" />
+
+                        <Setter Target="RelativePanelMain.(RelativePanel.Margin)" Value="12,0,12,0" />
+                        
+                        <!--<Setter Target="Root.Background" Value="Red" />-->
+
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!--Portrait-->
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="500" MinWindowWidth="250" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="PreviewControl.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="PreviewControl.(RelativePanel.AlignRightWithPanel)" Value="True" />
+
+
+                        <Setter Target="ColorTypeSelector.(RelativePanel.Below)" Value="PreviewControl" />
+                        <Setter Target="ColorTypeSelector.(RelativePanel.Above)" Value="ValueInput" />
+
+
+
+                        <Setter Target="ValueInput.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="ValueInput.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="ValueInput.(RelativePanel.AlignBottomWithPanel)" Value="True" />
+
+                        <Setter Target="_R.Width" Value="100" />
+                        <Setter Target="_G.Width" Value="100" />
+                        <Setter Target="_B.Width" Value="100" />
+
+                        <Setter Target="RelativePanelMain.(RelativePanel.Margin)" Value="12" />
+                        
+                        <!--<Setter Target="Root.Background" Value="Gray" />-->
+
+
+                    </VisualState.Setters>
+                </VisualState>
+
+
+                <!--StrechStuff-->
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="500" MinWindowWidth="500" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+
+                        <Setter Target="ColorTypeSelector.(RelativePanel.Below)" Value="PreviewControl" />
+
+                        <Setter Target="ValueInput.(RelativePanel.Below)" Value="ColorTypeSelector" />
+
+                        <Setter Target="ValueInput.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="ValueInput.(RelativePanel.AlignRightWithPanel)" Value="True" />
+
+                        <Setter Target="_R.Width" Value="100" />
+                        <Setter Target="_G.Width" Value="100" />
+                        <Setter Target="_B.Width" Value="100" />
+
+                        <Setter Target="RelativePanelMain.(RelativePanel.Margin)" Value="12" />
+                        <!--<Setter Target="Root.Background" Value="Pink" />-->
+
+
+                    </VisualState.Setters>
+                </VisualState>
+
+
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="0" MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="PreviewControl.Visibility" Value="Collapsed" />
+
+                        
+                        <Setter Target="ColorTypeSelector.Width" Value="120" />
+                        <Setter Target="ColorTypeSelector.(RelativePanel.AlignRightWithPanel)" Value="True" />
+
+                        <Setter Target="ValueInput.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="ValueInput.(RelativePanel.LeftOf)" Value="ColorTypeSelector" />
+
+                        <Setter Target="_R.Width" Value="50" />
+                        <Setter Target="_G.Width" Value="50" />
+                        <Setter Target="_B.Width" Value="50" />
+
+                        <Setter Target="RelativePanelMain.(RelativePanel.Margin)" Value="12" />
+                        
+                        <!--<Setter Target="Root.Background" Value="Purple" />-->
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+    </Grid>
+</Page>

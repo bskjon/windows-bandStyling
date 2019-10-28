@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppName" xml:space="preserve">
+    <value>Band styling</value>
+  </data>
+  <data name="AppShortName" xml:space="preserve">
+    <value>Band styling</value>
+  </data>
+  <data name="BandImagePage_AppBarButtonAccept.Label" xml:space="preserve">
+    <value>Use</value>
+  </data>
+  <data name="BandImagePage_AppBarButtonDetails.Label" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="BandImagePage_AppBarButtonOpen.Label" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="BandImagePage_AppBarButtonSave.Label" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="BandImagePage_DetailsFlyout_BandGenerationText1.Text" xml:space="preserve">
+    <value>Your Band belongs to generation:</value>
+  </data>
+  <data name="BandImagePage_DetailsFlyout_BandGenerationText2.Text" xml:space="preserve">
+    <value>This Band generation requires the following resolution:</value>
+  </data>
+  <data name="BandImagePage_DetailsFlyout_Header.Text" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="BandImagePage_HeightTextBlock.Text" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="BandImagePage_MeTileHeader.Text" xml:space="preserve">
+    <value>MeTile preview</value>
+  </data>
+  <data name="BandImagePage_WidthTextBlock.Text" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="BandThemePage_B.Text" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="BandThemePage_BlueSlider.Text" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="BandThemePage_BlueTextBlock.Header" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="BandThemePage_G.Text" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="BandThemePage_GreenSlider.Text" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="BandThemePage_GreenTextBlock.Header" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="BandThemePage_PivotItemHeader_Advanced.Header" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="BandThemePage_PivotItemHeader_Basic.Header" xml:space="preserve">
+    <value>Basic</value>
+  </data>
+  <data name="BandThemePage_R.Text" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="BandThemePage_RedSlider.Text" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="BandThemePage_RedTextBlock.Header" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="Band_DefaultAppRefresh" xml:space="preserve">
+    <value>Retrieving fresh data from your Band</value>
+  </data>
+  <data name="Band_DefaultUpdateText1" xml:space="preserve">
+    <value>Updating your Band with new theme</value>
+  </data>
+  <data name="Band_DefaultWaitText1" xml:space="preserve">
+    <value>Please wait..</value>
+  </data>
+  <data name="Band_GetDetails1" xml:space="preserve">
+    <value>Retrieving data from your Band</value>
+  </data>
+  <data name="Band_OneMomentDefault1" xml:space="preserve">
+    <value>One moment</value>
+  </data>
+  <data name="Band_SetDetails1" xml:space="preserve">
+    <value>This might take a while</value>
+  </data>
+  <data name="Band_UpdatingBandImage" xml:space="preserve">
+    <value>Updating your Band with new MeTile </value>
+  </data>
+  <data name="Global_AppBarButtonColors.Label" xml:space="preserve">
+    <value>Colors</value>
+  </data>
+  <data name="Global_AppBarButtonSave.Label" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Global_ButtonApply.Content" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="Global_ButtonUpdate.Content" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Global_DefaultProfileName" xml:space="preserve">
+    <value>Current Theme</value>
+  </data>
+  <data name="Global_ExtendedExecutionSession_DeniedText" xml:space="preserve">
+    <value>Please wait with closing the application untill it is done updating your Band</value>
+  </data>
+  <data name="Global_ExtendedExecutionSession_DeniedTitle" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Global_ExtendedExecutionSession_Description01" xml:space="preserve">
+    <value>Updating Band in background</value>
+  </data>
+  <data name="MainPage_AppBarButtonBoth.Text" xml:space="preserve">
+    <value>Update both</value>
+  </data>
+  <data name="MainPage_AppBarButtonChangeName.Label" xml:space="preserve">
+    <value>Change name</value>
+  </data>
+  <data name="MainPage_AppBarButtonDelete.Label" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="MainPage_AppBarButtonExport.Label" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="MainPage_AppBarButtonImport.Label" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="MainPage_AppBarButtonMeTile.Text" xml:space="preserve">
+    <value>Update MeTile</value>
+  </data>
+  <data name="MainPage_AppBarButtonNewProfile.Label" xml:space="preserve">
+    <value>New profile</value>
+  </data>
+  <data name="MainPage_AppBarButtonReload.Label" xml:space="preserve">
+    <value>Reload</value>
+  </data>
+  <data name="MainPage_AppBarButtonTheme.Text" xml:space="preserve">
+    <value>Update Theme</value>
+  </data>
+  <data name="MainPage_AppBarButtonUpload.Label" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="MainPage_AppBarButtonVersion.Label" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="MainPage_DescriptionTextBlock.Text" xml:space="preserve">
+    <value>If you select, and update the current theme, the changes will not be stored, but only applied to your Band. If you choose to create and update a profile, it will be stored.</value>
+  </data>
+  <data name="MainPage_MeTileTextBlock.Text" xml:space="preserve">
+    <value>MeTile</value>
+  </data>
+  <data name="MainPage_NewProfileNameTextBlock.Text" xml:space="preserve">
+    <value>Profile name</value>
+  </data>
+  <data name="MainPage_OneMoment.Text" xml:space="preserve">
+    <value>One Moment</value>
+  </data>
+  <data name="MainPage_PreviewTextBlock.Text" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="MainPage_ProfileSelector.Header" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="MainPage_ThemeTextBlock.Text" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="MainPage_UpdateProfileNameTextBlock.Text" xml:space="preserve">
+    <value>Change profile name</value>
+  </data>
+  <data name="MessagDialog_SelectingImageErrorTitle" xml:space="preserve">
+    <value>Wrong resolution</value>
+  </data>
+  <data name="MessageDialog_BandConnectErrorContent" xml:space="preserve">
+    <value>Failed to connect and retrieve data from you Microsoft Band!
+If this issue continues please try the following:
+
+1) Open Microsoft Health
+Go to "Personalize Band" and update the theme.
+
+2) Open Microsoft Health
+Go to "Manage Tiles" and select/un-select tiles, and update.
+
+If none of the following steps works, please report the issue..</value>
+  </data>
+  <data name="MessageDialog_BandConnectErrorTitle" xml:space="preserve">
+    <value>Something went wrong</value>
+  </data>
+  <data name="MessageDialog_BandMissingContent" xml:space="preserve">
+    <value>No Bands were detected.. Verify that the Band is connected</value>
+  </data>
+  <data name="MessageDialog_BandMissingTitle" xml:space="preserve">
+    <value>Band Missing</value>
+  </data>
+  <data name="MessageDialog_BandUpdateErrorContent1" xml:space="preserve">
+    <value>Some values are wrong..</value>
+  </data>
+  <data name="MessageDialog_BandUpdateErrorOops" xml:space="preserve">
+    <value>Oops..</value>
+  </data>
+  <data name="MessageDialog_ErrorOopsTitle" xml:space="preserve">
+    <value>Oops..</value>
+  </data>
+  <data name="MessageDialog_ErrorXDocumentContent1" xml:space="preserve">
+    <value>Couldn't save theme</value>
+  </data>
+  <data name="MessageDialog_ErrorXElementContent1" xml:space="preserve">
+    <value>Couldn't update the stored theme</value>
+  </data>
+  <data name="MessageDialog_ErrorXElementContent2" xml:space="preserve">
+    <value>Multiple elements contains the same id..</value>
+  </data>
+  <data name="MessageDialog_ExportContent" xml:space="preserve">
+    <value>The export of profiles were successful</value>
+  </data>
+  <data name="MessageDialog_ExportContentNo" xml:space="preserve">
+    <value>There were no custom profiles to export</value>
+  </data>
+  <data name="MessageDialog_ExportTitle" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="MessageDialog_ExportTitleNo" xml:space="preserve">
+    <value>Export canceled</value>
+  </data>
+  <data name="MessageDialog_ImportContent" xml:space="preserve">
+    <value>The import of profiles were successful.</value>
+  </data>
+  <data name="MessageDialog_ImportTitle" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="MessageDialog_SelectingImageErrorContent" xml:space="preserve">
+    <value>The height or width of this image doesn't mach the Band's resolution</value>
+  </data>
+  <data name="MessageDialog_SelectingImageErrorTitle" xml:space="preserve">
+    <value>Wrong resolution</value>
+  </data>
+  <data name="MessageDialog_VersionTitle" xml:space="preserve">
+    <value>Application version</value>
+  </data>
+</root>

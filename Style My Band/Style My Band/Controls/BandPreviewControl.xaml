@@ -1,0 +1,89 @@
+﻿<UserControl
+    x:Class="Style_My_Band.BandPreviewControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Style_My_Band"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid>
+        <Grid HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+
+            <Border Height="100" Grid.Column="0" Background="#FF323232" CornerRadius="15,0,0,15" />
+
+
+            <Border Grid.Column="1" Width="240" Background="Black" Height="100" BorderBrush="LightGray" BorderThickness="0,5,0,5">
+
+                <Grid>
+
+                    <Grid Width="180">
+
+                        <FlipView x:Name="BandLayoutPreview" Height="72" Background="Black">
+                            <FlipViewItem>
+                                <local:BandBaseControl x:Name="Base" />
+                            </FlipViewItem>
+                            <FlipViewItem>
+                                <local:BandHighContrastControl x:Name="HighContrast" />
+                            </FlipViewItem>
+                            <FlipViewItem>
+                                <local:BandLowlightControl x:Name="LowLight" />
+                            </FlipViewItem>
+                            <FlipViewItem>
+                                <local:BandHighlightControl x:Name="Hightlight" />
+                            </FlipViewItem>
+                            <FlipViewItem>
+                                <local:BandMutedControl x:Name="Muted" />
+                            </FlipViewItem>
+                            <FlipViewItem>
+                                <local:BandSecondaryControl x:Name="Secondary" />
+                            </FlipViewItem>
+                        </FlipView>
+
+
+
+
+
+
+                        <Canvas Width="180" Height="72" IsHitTestVisible="False" >
+                            <Canvas.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.05">
+                                    <LinearGradientBrush.RelativeTransform>
+                                        <CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="136"/>
+                                    </LinearGradientBrush.RelativeTransform>
+                                    <GradientStop Color="Black" Offset="0.5"/>
+                                    <GradientStop Color="White" Offset="0.505"/>
+                                </LinearGradientBrush>
+                            </Canvas.Background>
+                        </Canvas>
+                    </Grid>
+
+                    <Ellipse Width="10" Height="10" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5">
+                        <Ellipse.RenderTransform>
+                            <CompositeTransform TranslateX="-10"/>
+                        </Ellipse.RenderTransform>
+                        <Ellipse.Fill>
+                            <SolidColorBrush Color="#FF323232" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+
+
+
+
+            </Border>
+
+            <Border Height="100" Grid.Column="2" Background="#FF323232" CornerRadius="0,15,15,0" />
+
+        </Grid>
+
+    </Grid>
+
+</UserControl>

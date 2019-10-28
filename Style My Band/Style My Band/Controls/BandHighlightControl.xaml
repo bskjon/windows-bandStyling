@@ -1,0 +1,32 @@
+﻿<UserControl
+    x:Class="Style_My_Band.BandHighlightControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Style_My_Band"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="128"
+    d:DesignWidth="310">
+
+    <Grid x:Name="root">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border x:Name="Border" Tag="Highlight" BorderBrush="Purple" BorderThickness="0,0,2,0">
+            <FontIcon Glyph="&#xE7EA;" FontSize="12" Foreground="White" VerticalAlignment="Top" Margin="0,6,0,0" />
+        </Border>
+
+        <Grid Grid.Column="1" Margin="12,6,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" x:Name="Highlight" Tag="Highlight" Text="Band styling" Foreground="Purple" />
+            <TextBlock Grid.Row="1" Text="Previewing changes for theme creator" Foreground="White" TextWrapping="WrapWholeWords" />
+        </Grid>
+    </Grid>
+</UserControl>
